@@ -1,0 +1,223 @@
+.navbar {
+    background-color: #1a1a1a; /* Preto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* Para permitir que o dropdown seja exibido fora da navbar */
+}
+
+
+/* Container da Navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+/* Logo da Navbar */
+.navbar-logo {
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo i {
+    margin-right: 8px;
+}
+
+.navbar-logo:hover {
+    color: #00bcd4; /* Ciano */
+    transform: scale(1.1);
+}
+
+/* Menu da Navbar */
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os itens do menu */
+}
+
+.navbar-menu li {
+    position: relative;
+}
+
+/* Links do Menu */
+.navbar-menu li a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaçamento entre ícones e texto */
+}
+
+.navbar-menu li a i {
+    margin-right: 8px;
+}
+
+.navbar-menu li a:hover {
+    background-color: #00bcd4; /* Ciano */
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000; /* Preto */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease-out;
+    overflow: hidden; /* Evita que o dropdown ultrapasse os limites */
+}
+
+.dropdown-content a {
+    color: #ffffff; /* Branco */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-content a i {
+    margin-right: 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: #00bcd4; /* Ciano */
+    color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #00bcd4; /* Ciano */
+}
+
+/* Botão de Toggle */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #ffffff;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+.navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .navbar-menu li {
+        text-align: center;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+}
+
+/* Animações */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
